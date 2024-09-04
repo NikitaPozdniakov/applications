@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cova352bv3kuj"]
+
+[ext_resource type="Texture2D" uid="uid://1v2h4acc2oyl" path="res://Mini Pixel Pack 3/Enemies/Alan (16 x 16).png" id="1_78wom"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_wxo1s"]
+[ext_resource type="PackedScene" uid="uid://c3dhb4774j0k2" path="res://enemy bullet.tscn" id="2_curty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmj31"]
+size = Vector2(12.6361, 14.1353)
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+scale = Vector2(1.01677, 1.01387)
+script = ExtResource("1_wxo1s")
+bullet_scene = ExtResource("2_curty")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
+position = Vector2(-0.42578, -0.0547209)
+scale = Vector2(1.05322, 0.99316)
+texture = ExtResource("1_78wom")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.44529)
+scale = Vector2(1.42449, 1.05343)
+shape = SubResource("RectangleShape2D_mmj31")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

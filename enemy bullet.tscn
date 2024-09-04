@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3dhb4774j0k2"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_xtiav"]
+[ext_resource type="Texture2D" uid="uid://dg828ixk0vswg" path="res://Mini Pixel Pack 3/Projectiles/Enemy_projectile (16 x 16).png" id="2_oj7qm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyfrt"]
+radius = 4.12311
+
+[node name="enemy_bullet" type="Area2D"]
+script = ExtResource("1_xtiav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oj7qm")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kyfrt")
